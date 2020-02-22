@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
-    <name>Transform_eAccessible</name>
+    <name>Transform_eAccessible_local</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -427,10 +427,10 @@
     <clusterschemas>
     </clusterschemas>
     <created_user>-</created_user>
-    <created_date>2020/02/20 17:58:52.803</created_date>
+    <created_date>2020/02/22 22:24:16.823</created_date>
     <modified_user>-</modified_user>
-    <modified_date>2020/02/20 17:58:52.803</modified_date>
-    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA=</key_for_session_key>
+    <modified_date>2020/02/22 22:24:16.823</modified_date>
+    <key_for_session_key/>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
@@ -489,11 +489,16 @@
   <order>
     <hop>
       <from>CSV file input</from>
-      <to>Select - tipoLocal</to>
+      <to>Select</to>
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Select - tipoLocal</from>
+      <from>Select</from>
+      <to>Añadir constantes</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Añadir constantes</from>
       <to>Ordenar filas</to>
       <enabled>Y</enabled>
     </hop>
@@ -503,7 +508,22 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
+      <from>Entrada Tabla</from>
+      <to>Unión por clave</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
       <from>Filas Unicas</from>
+      <to>Unión por clave</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Unión por clave</from>
+      <to>Selecciona/Renombra valores</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Selecciona/Renombra valores</from>
       <to>Añadir secuencia</to>
       <enabled>Y</enabled>
     </hop>
@@ -513,41 +533,6 @@
       <enabled>Y</enabled>
     </hop>
   </order>
-  <step>
-    <name>Añadir secuencia</name>
-    <type>Sequence</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <valuename>id</valuename>
-    <use_database>N</use_database>
-    <connection>localhost</connection>
-    <schema/>
-    <seqname>SEQ_</seqname>
-    <use_counter>Y</use_counter>
-    <counter_name/>
-    <start_at>1</start_at>
-    <increment_by>1</increment_by>
-    <max_value>999999999</max_value>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>624</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
   <step>
     <name>CSV file input</name>
     <type>CsvInput</type>
@@ -559,7 +544,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>${Internal.Entry.Current.Directory}/accessibiitat-lleida.csv</filename>
+    <filename>C:\Users\Francesc\OneDrive\OneDrive\Enginyeria Informàtica\4rt - Curs 2019-20\Integració de sistemes\Practiques\ETL-Pentaho\accessibiitat-lleida.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -848,8 +833,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>96</xloc>
-      <yloc>80</yloc>
+      <xloc>160</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -874,11 +859,23 @@
         <case_insensitive>N</case_insensitive>
       </field>
       <field>
-        <name>nomTipoLocalES</name>
+        <name>codiCarrer</name>
         <case_insensitive>N</case_insensitive>
       </field>
       <field>
-        <name>nomTipoLocalEN</name>
+        <name>nomCarrer</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>nomVia</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>numero</name>
+        <case_insensitive>N</case_insensitive>
+      </field>
+      <field>
+        <name>nomLocal</name>
         <case_insensitive>N</case_insensitive>
       </field>
     </fields>
@@ -891,8 +888,111 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>464</xloc>
-      <yloc>80</yloc>
+      <xloc>640</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>﻿nomTipoLocalCA</name>
+        <rename/>
+      </field>
+      <field>
+        <name>codiCarrer</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nomCarrer</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nomVia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>numero</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nomLocal</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>304</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Añadir constantes</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>observacions</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif/>
+        <length>300</length>
+        <precision>-1</precision>
+        <set_empty_string>Y</set_empty_string>
+      </field>
+      <field>
+        <name>verificat</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>N</nullif>
+        <length>1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>432</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -924,7 +1024,7 @@
         <presorted>N</presorted>
       </field>
       <field>
-        <name>nomTipoLocalES</name>
+        <name>codiCarrer</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -932,7 +1032,31 @@
         <presorted>N</presorted>
       </field>
       <field>
-        <name>nomTipoLocalEN</name>
+        <name>nomCarrer</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>nomVia</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>numero</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>nomLocal</name>
         <ascending>Y</ascending>
         <case_sensitive>N</case_sensitive>
         <collator_enabled>N</collator_enabled>
@@ -949,8 +1073,270 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>368</xloc>
-      <yloc>80</yloc>
+      <xloc>544</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Unión por clave</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <join_type>INNER</join_type>
+    <step1>Filas Unicas</step1>
+    <step2>Entrada Tabla</step2>
+    <keys_1>
+      <key>﻿nomTipoLocalCA</key>
+    </keys_1>
+    <keys_2>
+      <key>nomtipolocalca</key>
+    </keys_2>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>784</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Entrada Tabla</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <connection>localhost</connection>
+    <sql>SELECT
+  coditipolocal
+, nomtipolocalca
+, nomtipolocales
+, nomtipolocalen
+FROM eaccessible.tipolocal
+</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+    <cached_row_meta_active>N</cached_row_meta_active>
+    <row-meta>
+      <value-meta>
+        <type>Integer</type>
+        <storagetype>normal</storagetype>
+        <name>coditipolocal</name>
+        <length>15</length>
+        <precision>0</precision>
+        <origin>Entrada Tabla</origin>
+        <comments>coditipolocal</comments>
+        <conversion_Mask>####0;-####0</conversion_Mask>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nomtipolocalca</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Entrada Tabla</origin>
+        <comments>nomtipolocalca</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nomtipolocales</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Entrada Tabla</origin>
+        <comments>nomtipolocales</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+      <value-meta>
+        <type>String</type>
+        <storagetype>normal</storagetype>
+        <name>nomtipolocalen</name>
+        <length>100</length>
+        <precision>-1</precision>
+        <origin>Entrada Tabla</origin>
+        <comments>nomtipolocalen</comments>
+        <conversion_Mask/>
+        <decimal_symbol>,</decimal_symbol>
+        <grouping_symbol>.</grouping_symbol>
+        <currency_symbol/>
+        <trim_type>none</trim_type>
+        <case_insensitive>N</case_insensitive>
+        <collator_disabled>Y</collator_disabled>
+        <collator_strength>0</collator_strength>
+        <sort_descending>N</sort_descending>
+        <output_padding>N</output_padding>
+        <date_format_lenient>N</date_format_lenient>
+        <date_format_locale>es_ES</date_format_locale>
+        <date_format_timezone>Europe/Paris</date_format_timezone>
+        <lenient_string_to_number>N</lenient_string_to_number>
+      </value-meta>
+    </row-meta>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>480</xloc>
+      <yloc>288</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Selecciona/Renombra valores</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>codiCarrer</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nomCarrer</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nomVia</name>
+        <rename/>
+      </field>
+      <field>
+        <name>numero</name>
+        <rename/>
+      </field>
+      <field>
+        <name>nomLocal</name>
+        <rename/>
+      </field>
+      <field>
+        <name>observacions</name>
+        <rename/>
+      </field>
+      <field>
+        <name>verificat</name>
+        <rename/>
+      </field>
+      <field>
+        <name>coditipolocal</name>
+        <rename/>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>944</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Añadir secuencia</name>
+    <type>Sequence</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <valuename>id</valuename>
+    <use_database>N</use_database>
+    <connection>localhost</connection>
+    <schema/>
+    <seqname>SEQ_</seqname>
+    <use_counter>Y</use_counter>
+    <counter_name/>
+    <start_at>1</start_at>
+    <increment_by>1</increment_by>
+    <max_value>999999999</max_value>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1088</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -967,7 +1353,7 @@
     </partitioning>
     <connection>localhost</connection>
     <schema>eaccessible</schema>
-    <table>tipolocal</table>
+    <table>local</table>
     <commit>1000</commit>
     <truncate>N</truncate>
     <ignore_errors>N</ignore_errors>
@@ -984,20 +1370,40 @@
     <return_field/>
     <fields>
       <field>
-        <column_name>coditipolocal</column_name>
+        <column_name>codilocal</column_name>
         <stream_name>id</stream_name>
       </field>
       <field>
-        <column_name>nomtipolocalca</column_name>
-        <stream_name>﻿nomTipoLocalCA</stream_name>
+        <column_name>coditipolocal</column_name>
+        <stream_name>coditipolocal</stream_name>
       </field>
       <field>
-        <column_name>nomtipolocales</column_name>
-        <stream_name>nomTipoLocalES</stream_name>
+        <column_name>codicarrer</column_name>
+        <stream_name>codiCarrer</stream_name>
       </field>
       <field>
-        <column_name>nomtipolocalen</column_name>
-        <stream_name>nomTipoLocalEN</stream_name>
+        <column_name>nomvia</column_name>
+        <stream_name>nomVia</stream_name>
+      </field>
+      <field>
+        <column_name>numero</column_name>
+        <stream_name>numero</stream_name>
+      </field>
+      <field>
+        <column_name>nomlocal</column_name>
+        <stream_name>nomLocal</stream_name>
+      </field>
+      <field>
+        <column_name>observacions</column_name>
+        <stream_name>observacions</stream_name>
+      </field>
+      <field>
+        <column_name>verificat</column_name>
+        <stream_name>verificat</stream_name>
+      </field>
+      <field>
+        <column_name>nomcarrer</column_name>
+        <stream_name>nomCarrer</stream_name>
       </field>
     </fields>
     <attributes/>
@@ -1009,45 +1415,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>784</xloc>
-      <yloc>80</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
-    <name>Select - tipoLocal</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <fields>
-      <field>
-        <name>﻿nomTipoLocalCA</name>
-      </field>
-      <field>
-        <name>nomTipoLocalES</name>
-      </field>
-      <field>
-        <name>nomTipoLocalEN</name>
-      </field>
-      <select_unspecified>N</select_unspecified>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>240</xloc>
-      <yloc>80</yloc>
+      <xloc>1232</xloc>
+      <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
