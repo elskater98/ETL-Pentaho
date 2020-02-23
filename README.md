@@ -3,12 +3,12 @@ Practica 1 - Integració de Sistemes
 
 # Taules (Obligatori)
 
-tipoLocal ✔
-local (verificat: default, observacions:null) ✔
-accessibilitat (verificat: default)
-caraccteristicaTipoLocal
-nivell ✔
-caracterisitca ✔
+- tipoLocal ✔
+- local (verificat: default, observacions:null) ✔
+- accessibilitat (verificat: default)
+- caraccteristicaTipoLocal
+- nivell ✔
+- caracterisitca ✔
 
 # Voluntari
 - codiCarrer comprovar-ho amb el carrer. Transform apart
