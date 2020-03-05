@@ -13,5 +13,5 @@ Practica 1 - Integració de Sistemes
 
 # Voluntari
 - codiCarrer comprovar-ho amb el carrer. Transform apart
-- Incloure URLs + coordenades -> Taula apart o afegir nous camps a la taula local
+- Incloure URLs + coordenades -> Taula apart o afegir nous camps a la taula local ✔
 
