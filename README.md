@@ -9,7 +9,7 @@ Practica 1 - Integració de Sistemes
 - caraccteristicaTipoLocal ✔
 - nivell ✔
 - caracterisitca ✔
-- JOB
+- JOB  ✔
 
 # Voluntari
 - codiCarrer comprovar-ho amb el carrer. Transform apart
