@@ -27,6 +27,12 @@ CREATE TABLE eAccessible.local(
 	nomLocal character varying(250) NULL,
 	observacions character varying(300) NULL,
 	verificat char(1) NULL,
+	/*Columnes part voluntaria*/
+	urllocal character varying(250) NULL,
+	urllocalGoogleMaps character varying(250) NULL,
+	longitude decimal NULL,
+	latitude decimal NULL,
+	/**/
  CONSTRAINT PK_local PRIMARY KEY (codiLocal) );
 
 CREATE TABLE eAccessible.caracteristica(
