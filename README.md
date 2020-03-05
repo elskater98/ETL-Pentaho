@@ -1,14 +1,15 @@
 # ETL-Pentaho
 Practica 1 - Integració de Sistemes
 
-# Taules (Obligatori)
+# Taules (Obligatori)   ✔
 
 - tipoLocal ✔
 - local (verificat: default, observacions:null) ✔
-- accessibilitat (verificat: default)
-- caraccteristicaTipoLocal
+- accessibilitat (verificat: default) ✔
+- caraccteristicaTipoLocal ✔
 - nivell ✔
 - caracterisitca ✔
+- JOB  ✔
 
 # Voluntari
 - codiCarrer comprovar-ho amb el carrer. Transform apart
