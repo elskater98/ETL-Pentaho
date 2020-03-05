@@ -1,7 +1,7 @@
 # ETL-Pentaho
 Practica 1 - Integració de Sistemes
 
-# Taules (Obligatori)
+# Taules (Obligatori)   ✔
 
 - tipoLocal ✔
 - local (verificat: default, observacions:null) ✔
