@@ -564,11 +564,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Filas Unicas</from>
-      <to>Unión por clave</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Unión por clave</from>
       <to>Selecciona/Renombra valores</to>
       <enabled>Y</enabled>
@@ -582,6 +577,16 @@
       <from>Añadir secuencia</from>
       <to>Salida Tabla</to>
       <enabled>N</enabled>
+    </hop>
+    <hop>
+      <from>Ordenar filas 2</from>
+      <to>Unión por clave</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Filas Unicas</from>
+      <to>Ordenar filas 2</to>
+      <enabled>Y</enabled>
     </hop>
   </order>
   <step>
@@ -630,7 +635,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>432</xloc>
+      <xloc>368</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -970,7 +975,7 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>160</xloc>
+      <xloc>96</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -990,8 +995,6 @@
     <sql>SELECT
   coditipolocal
 , nomtipolocalca
-, nomtipolocales
-, nomtipolocalen
 FROM eaccessible.tipolocal
 </sql>
     <limit>0</limit>
@@ -1032,52 +1035,6 @@ FROM eaccessible.tipolocal
         <precision>-1</precision>
         <origin>Entrada Tabla</origin>
         <comments>nomtipolocalca</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_ES</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>nomtipolocales</name>
-        <length>100</length>
-        <precision>-1</precision>
-        <origin>Entrada Tabla</origin>
-        <comments>nomtipolocales</comments>
-        <conversion_Mask/>
-        <decimal_symbol>,</decimal_symbol>
-        <grouping_symbol>.</grouping_symbol>
-        <currency_symbol/>
-        <trim_type>none</trim_type>
-        <case_insensitive>N</case_insensitive>
-        <collator_disabled>Y</collator_disabled>
-        <collator_strength>0</collator_strength>
-        <sort_descending>N</sort_descending>
-        <output_padding>N</output_padding>
-        <date_format_lenient>N</date_format_lenient>
-        <date_format_locale>es_ES</date_format_locale>
-        <date_format_timezone>Europe/Paris</date_format_timezone>
-        <lenient_string_to_number>N</lenient_string_to_number>
-      </value-meta>
-      <value-meta>
-        <type>String</type>
-        <storagetype>normal</storagetype>
-        <name>nomtipolocalen</name>
-        <length>100</length>
-        <precision>-1</precision>
-        <origin>Entrada Tabla</origin>
-        <comments>nomtipolocalen</comments>
         <conversion_Mask/>
         <decimal_symbol>,</decimal_symbol>
         <grouping_symbol>.</grouping_symbol>
@@ -1138,7 +1095,7 @@ FROM eaccessible.tipolocal
       </output>
     </remotesteps>
     <GUI>
-      <xloc>640</xloc>
+      <xloc>576</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1180,7 +1137,7 @@ FROM eaccessible.tipolocal
       </output>
     </remotesteps>
     <GUI>
-      <xloc>544</xloc>
+      <xloc>480</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1398,7 +1355,7 @@ FROM eaccessible.tipolocal
       </output>
     </remotesteps>
     <GUI>
-      <xloc>304</xloc>
+      <xloc>240</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
@@ -1415,7 +1372,7 @@ FROM eaccessible.tipolocal
       <schema_name/>
     </partitioning>
     <join_type>INNER</join_type>
-    <step1>Filas Unicas</step1>
+    <step1>Ordenar filas 2</step1>
     <step2>Entrada Tabla</step2>
     <keys_1>
       <key>﻿nomTipoLocalCA</key>
@@ -1433,6 +1390,48 @@ FROM eaccessible.tipolocal
     </remotesteps>
     <GUI>
       <xloc>784</xloc>
+      <yloc>96</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Ordenar filas 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>out</prefix>
+    <sort_size>1000000</sort_size>
+    <free_memory/>
+    <compress>N</compress>
+    <compress_variable/>
+    <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>﻿nomTipoLocalCA</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <collator_enabled>N</collator_enabled>
+        <collator_strength>0</collator_strength>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
       <yloc>96</yloc>
       <draw>Y</draw>
     </GUI>
