@@ -581,7 +581,7 @@
     <hop>
       <from>Añadir secuencia</from>
       <to>Salida Tabla</to>
-      <enabled>Y</enabled>
+      <enabled>N</enabled>
     </hop>
   </order>
   <step>
@@ -1125,26 +1125,6 @@ FROM eaccessible.tipolocal
     <error_description/>
     <fields>
       <field>
-        <name>﻿nomTipoLocalCA</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>codiCarrer</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>nomCarrer</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>nomVia</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
-        <name>numero</name>
-        <case_insensitive>N</case_insensitive>
-      </field>
-      <field>
         <name>nomLocal</name>
         <case_insensitive>N</case_insensitive>
       </field>
@@ -1182,46 +1162,6 @@ FROM eaccessible.tipolocal
     <compress_variable/>
     <unique_rows>N</unique_rows>
     <fields>
-      <field>
-        <name>﻿nomTipoLocalCA</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>codiCarrer</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nomCarrer</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>nomVia</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
-      <field>
-        <name>numero</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <collator_enabled>N</collator_enabled>
-        <collator_strength>0</collator_strength>
-        <presorted>N</presorted>
-      </field>
       <field>
         <name>nomLocal</name>
         <ascending>Y</ascending>
@@ -1355,51 +1295,39 @@ FROM eaccessible.tipolocal
     <fields>
       <field>
         <name>codiCarrer</name>
-        <rename/>
       </field>
       <field>
         <name>nomCarrer</name>
-        <rename/>
       </field>
       <field>
         <name>nomVia</name>
-        <rename/>
       </field>
       <field>
         <name>numero</name>
-        <rename/>
       </field>
       <field>
         <name>nomLocal</name>
-        <rename/>
       </field>
       <field>
         <name>observacions</name>
-        <rename/>
       </field>
       <field>
         <name>verificat</name>
-        <rename/>
       </field>
       <field>
         <name>coditipolocal</name>
-        <rename/>
       </field>
       <field>
         <name>COORX</name>
-        <rename/>
       </field>
       <field>
         <name>COORY</name>
-        <rename/>
       </field>
       <field>
         <name>urlCA</name>
-        <rename/>
       </field>
       <field>
         <name>urlGoogleMapsCA</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
@@ -1431,43 +1359,33 @@ FROM eaccessible.tipolocal
     <fields>
       <field>
         <name>﻿nomTipoLocalCA</name>
-        <rename/>
       </field>
       <field>
         <name>codiCarrer</name>
-        <rename/>
       </field>
       <field>
         <name>nomCarrer</name>
-        <rename/>
       </field>
       <field>
         <name>nomVia</name>
-        <rename/>
       </field>
       <field>
         <name>numero</name>
-        <rename/>
       </field>
       <field>
         <name>nomLocal</name>
-        <rename/>
       </field>
       <field>
         <name>urlCA</name>
-        <rename/>
       </field>
       <field>
         <name>urlGoogleMapsCA</name>
-        <rename/>
       </field>
       <field>
         <name>COORX</name>
-        <rename/>
       </field>
       <field>
         <name>COORY</name>
-        <rename/>
       </field>
       <select_unspecified>N</select_unspecified>
     </fields>
